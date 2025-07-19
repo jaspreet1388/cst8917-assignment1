@@ -1,14 +1,11 @@
-CST8917 Assignment 1: Durable Workflow for Image Metadata Processing
+## CST8917 Assignment 1: Durable Workflow for Image Metadata Processing
 
-Weight: 10% of Final Grade
-Due Date: Saturday, July 19, 2025, 11:59 PM
-Submission: GitHub repo having all source code with proper documentation + YouTube demo (Max 5 minuites) link in README.md. Submit the GitHub repository URL via Brightspace.
 
-Objective
+### Objective
 
 Build a serverless image metadata processing pipeline using Azure Durable Functions in Python. This assignment challenges you to use blob triggers, activity functions, and output bindings, and to deploy a complete solution to Azure. You'll simulate a real-world event-driven system.
 
-Scenario
+### Scenario
 
 A fictional content moderation team wants to analyze the metadata of user-uploaded images. Your Durable Functions app should:
 
@@ -17,16 +14,18 @@ Extract metadata (e.g., file size, format, dimensions).
 Store the metadata in an Azure SQL Database.
 Workflow Requirements
 
-Step 1: Blob Trigger (Client Function)
+### Step 1: Blob Trigger (Client Function)
 
 Create a blob-triggered function that starts the orchestration.
 The blob container (e.g., images-input) should accept .jpg, .png, or .gif images.
-Step 2: Orchestrator Function
+
+### Step 2: Orchestrator Function
 
 The orchestrator should:
 Call an activity function to extract metadata from the image.
 Call a second activity function to store that metadata in Azure SQL DB via output binding.
-Step 3: Activity Function – Extract Metadata
+
+### Step 3: Activity Function – Extract Metadata
 
 Extract the following from each image:
 File name
