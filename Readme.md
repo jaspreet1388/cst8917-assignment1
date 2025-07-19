@@ -55,6 +55,7 @@ func start
     "SQL_DB": "<database>"
   }
 }
+```
 
 ### Step 2: Orchestrator Function
 
