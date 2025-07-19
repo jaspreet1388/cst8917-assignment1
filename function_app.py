@@ -9,19 +9,19 @@ from PIL import Image
 import io
 import pymssql
  
-# ✅ Secure: Read storage connection string from env
+# Secure: Read storage connection string from env
 blob_service_client = BlobServiceClient.from_connection_string(os.environ.get("AzureWebJobsStorage"))
  
-# ✅ Initialize Durable Function app
+# Initialize Durable Function app
 my_app = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
  
-# ✅ Trigger: Blob upload starts orchestration
+# Trigger: Blob upload starts orchestration
 @my_app.blob_trigger(arg_name="myblob", path="images-input/{name}", connection="AzureWebJobsStorage")
 @my_app.durable_client_input(client_name="client")
 async def blob_trigger(myblob: func.InputStream, client):
     blob_name = myblob.name.split("/")[-1]
  
-    # ✅ Optional: Skip unsupported file types
+    # Optional: Skip unsupported file types
     if not blob_name.lower().endswith(('.jpg', '.jpeg', '.png', '.gif')):
         logging.warning(f"Unsupported file type skipped: {blob_name}")
         return
@@ -29,7 +29,7 @@ async def blob_trigger(myblob: func.InputStream, client):
     logging.info(f"Blob trigger processed blob: Name={myblob.name}, Size={myblob.length} bytes")
     await client.start_new("orchestrator", client_input=blob_name)
  
-# ✅ Orchestrator: Coordinates metadata extraction and storage
+# Orchestrator: Coordinates metadata extraction and storage
 @my_app.orchestration_trigger(context_name="context")
 def orchestrator(context: df.DurableOrchestrationContext):
     blob_name = context.get_input()
@@ -41,7 +41,7 @@ def orchestrator(context: df.DurableOrchestrationContext):
  
     return f"Metadata processed and stored for {blob_name}"
  
-# ✅ Activity: Extract image metadata
+# Activity: Extract image metadata
 @my_app.activity_trigger(input_name='blobName')
 def extract_metadata(blobName):
     logging.info(f"Extracting metadata for {blobName}")
@@ -61,7 +61,7 @@ def extract_metadata(blobName):
     logging.info(f"Extracted metadata: {metadata}")
     return metadata
  
-# ✅ Activity: Store metadata securely using env vars
+# Activity: Store metadata securely using env vars
 @my_app.activity_trigger(input_name='metadata')
 def store_metadata(metadata):
     logging.info(f"Storing metadata in SQL DB: {metadata}")
