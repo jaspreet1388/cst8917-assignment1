@@ -86,3 +86,5 @@ Image format (e.g., JPEG, PNG)
 Step 4: Activity Function – Store Metadata
 
 Use Azure SQL output binding to store the image metadata.
+
+Please find the tutorial link : https://youtu.be/dSh6wxZkE58
