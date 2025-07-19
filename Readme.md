@@ -14,10 +14,47 @@ Extract metadata (e.g., file size, format, dimensions).
 Store the metadata in an Azure SQL Database.
 Workflow Requirements
 
+
+## Setup Instructions
+
+###  Prerequisites
+
+- Python 3.10+
+- Azure CLI
+- [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+- `func` and `az` CLI access
+- Azure resources:
+  - Storage account with `images-input` container
+  - SQL Server & Database (`ImageMetadata` table must exist)
+
 ### Step 1: Blob Trigger (Client Function)
 
 Create a blob-triggered function that starts the orchestration.
 The blob container (e.g., images-input) should accept .jpg, .png, or .gif images.
+
+
+### 2. Local Development
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+func start
+```
+### local settings json file 
+``` json 
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "<Your_Connection_String>",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "SQL_SERVER": "<server>.database.windows.net",
+    "SQL_USER": "<username>",
+    "SQL_PASSWORD": "<password>",
+    "SQL_DB": "<database>"
+  }
+}
 
 ### Step 2: Orchestrator Function
 
