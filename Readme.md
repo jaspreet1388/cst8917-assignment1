@@ -57,6 +57,19 @@ func start
 }
 ```
 
+### sql schema
+``` sql
+CREATE TABLE ImageMetadata (
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  FileName NVARCHAR(255),
+  FileSizeKB FLOAT,
+  Width INT,
+  Height INT,
+  Format NVARCHAR(50),
+  Timestamp DATETIME DEFAULT GETDATE()
+);
+
+```
 ### Step 2: Orchestrator Function
 
 The orchestrator should:
