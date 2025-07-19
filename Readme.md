@@ -89,5 +89,12 @@ Use Azure SQL output binding to store the image metadata.
 ## Screen shots:
 <img width="2782" height="1524" alt="image" src="https://github.com/user-attachments/assets/a9fc0dda-b000-4a37-a441-a2b1948d7960" />
 
+<img width="2930" height="954" alt="image" src="https://github.com/user-attachments/assets/18c4aa59-1cec-40a2-b1a5-77101904f20d" />
+
+<img width="2930" height="1430" alt="image" src="https://github.com/user-attachments/assets/2971b3f0-71ac-4469-a6b7-7d6c2e9775f8" />
+
+
+
+
 
 Please find the tutorial link : https://youtu.be/dSh6wxZkE58
