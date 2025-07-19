@@ -1,5 +1,4 @@
-function_app.py 
-import logging
+ import logging
 import os
 from datetime import datetime
  
