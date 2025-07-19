@@ -1,0 +1,26 @@
+[
+  {
+    "name": "AzureWebJobsStorage",
+    "value": "DefaultEndpointsProtocol=https;AccountName=azurestorageacc99;AccountKey=KRXNhBkKcrYOcKXYTlLXQaRtxLn3v4V+NmsVl+WWVQ61VXR/oGQe7/+xpfn4KMMKR+TELiFz82Sh+AStvm10Hw==;EndpointSuffix=core.windows.net"
+  },
+  {
+    "name": "FUNCTIONS_WORKER_RUNTIME",
+    "value": "python"
+  },
+  {
+    "name": "SQL_SERVER",
+    "value": "cst8917sql13.database.windows.net"
+  },
+  {
+    "name": "SQL_USER",
+    "value": "sqlserveradmin"
+  },
+  {
+    "name": "SQL_PASSWORD",
+    "value": "Pass@9090"
+  },
+  {
+    "name": "SQL_DB",
+    "value": "cst8917db"
+  }
+]
